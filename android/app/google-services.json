@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "806233887962",
+    "project_id": "uzaydan-misafirler",
+    "storage_bucket": "uzaydan-misafirler.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806233887962:android:8d0edfc04a243b868401e3",
+        "android_client_info": {
+          "package_name": "com.example.uzaydan_misafirler"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1rtI3qcdFFpIpF02ROdH8MvWrkV3iMgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

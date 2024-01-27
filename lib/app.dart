@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:uzaydan_misafirler/view/register_view.dart';
 
-import 'view/home_view.dart';
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: RegisterView(),
     );
   }
 }
