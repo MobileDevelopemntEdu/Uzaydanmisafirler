@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../services/auth_services.dart';
 import 'register_view.dart';
 
 class loginView extends StatelessWidget {
@@ -11,6 +13,7 @@ class loginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthService authService = AuthService();
     return Scaffold(
       backgroundColor: Colors.grey,
       body: Padding(
@@ -32,7 +35,7 @@ class loginView extends StatelessWidget {
                     width: 12,
                   ),
                   Text(
-                    'Kayıt Ol',
+                    'Giriş Yap!',
                     style: TextStyle(fontSize: 24.5),
                   )
                 ],
@@ -103,7 +106,7 @@ class loginView extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () async {
-                      print("Burada");
+
 
                     },
                     style: ElevatedButton.styleFrom(
