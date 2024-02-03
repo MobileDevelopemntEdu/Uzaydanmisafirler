@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../services/auth_services.dart';
 import 'home_view.dart';
 import 'login_view.dart';
 
@@ -28,6 +29,7 @@ class RegisterView extends StatelessWidget {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final tcController = TextEditingController();
+  AuthService authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +207,7 @@ class RegisterView extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () async {
-                      print("Burada");
+
 
                       print(emailController.text);
                       print(passwordController.text);
@@ -214,7 +216,7 @@ class RegisterView extends StatelessWidget {
                       print(telnoController.text);
                       print(nameController.text);
 
-                      //auth.signInWithEmailAndPassword(email: email, password: password)
+                     authService.registerWithEmailAndPassword(emailController.text,passwordController.text);
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black,
