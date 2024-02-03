@@ -2,9 +2,9 @@ import 'package:http/http.dart' as http;
 
 Future<void> fetchData() async {
   // Replace 'YOUR_API_KEY' with your actual API key
-  final apiKey = 'YOUR_API_KEY';
+  final apiKey = 'Pl1a64c88DJl7WmYQijyFQtRc3kLoYXV8PEszGA4CxHJoarcXTjd6Fk6vmp5';
 
-  final url = 'https://api.example.com/data';
+  final url = ' https://www.nosyapi.com/apiv2/pharmacy';
 
   // Include the API key in the headers
   final headers = {
