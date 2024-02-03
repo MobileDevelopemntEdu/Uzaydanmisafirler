@@ -44,37 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDdg8Z_qJKO4JBmkCThDIfw-Mu7ddfj49E',
-    appId: '1:806233887962:web:68af51cde31a4e548401e3',
-    messagingSenderId: '806233887962',
-    projectId: 'uzaydan-misafirler',
-    authDomain: 'uzaydan-misafirler.firebaseapp.com',
-    storageBucket: 'uzaydan-misafirler.appspot.com',
+    apiKey: 'AIzaSyBoCDX2pLOU4iLUr9FygLJRANAiroQBLVI',
+    appId: '1:597391607537:web:65b641dc35902623c4cb50',
+    messagingSenderId: '597391607537',
+    projectId: 'hospital-system-6fa02',
+    authDomain: 'hospital-system-6fa02.firebaseapp.com',
+    storageBucket: 'hospital-system-6fa02.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD1rtI3qcdFFpIpF02ROdH8MvWrkV3iMgU',
-    appId: '1:806233887962:android:8d0edfc04a243b868401e3',
-    messagingSenderId: '806233887962',
-    projectId: 'uzaydan-misafirler',
-    storageBucket: 'uzaydan-misafirler.appspot.com',
+    apiKey: 'AIzaSyDy39RoTtvUkGZiTpEmnEGra6kacwYTfdA',
+    appId: '1:597391607537:android:d365a0031de641afc4cb50',
+    messagingSenderId: '597391607537',
+    projectId: 'hospital-system-6fa02',
+    storageBucket: 'hospital-system-6fa02.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC6UIjJQOzKrze_QBT5GG8nmFuRRXK9be8',
-    appId: '1:806233887962:ios:bfd1f2dd68ecae778401e3',
-    messagingSenderId: '806233887962',
-    projectId: 'uzaydan-misafirler',
-    storageBucket: 'uzaydan-misafirler.appspot.com',
+    apiKey: 'AIzaSyBpe1Mjl4OgtWb1Zp2Hv87qjBbEwOqsiT0',
+    appId: '1:597391607537:ios:578f14f5ff106c80c4cb50',
+    messagingSenderId: '597391607537',
+    projectId: 'hospital-system-6fa02',
+    storageBucket: 'hospital-system-6fa02.appspot.com',
     iosBundleId: 'com.example.uzaydanMisafirler',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyC6UIjJQOzKrze_QBT5GG8nmFuRRXK9be8',
-    appId: '1:806233887962:ios:ee84998654c5dffe8401e3',
-    messagingSenderId: '806233887962',
-    projectId: 'uzaydan-misafirler',
-    storageBucket: 'uzaydan-misafirler.appspot.com',
+    apiKey: 'AIzaSyBpe1Mjl4OgtWb1Zp2Hv87qjBbEwOqsiT0',
+    appId: '1:597391607537:ios:22c83c15040d511ec4cb50',
+    messagingSenderId: '597391607537',
+    projectId: 'hospital-system-6fa02',
+    storageBucket: 'hospital-system-6fa02.appspot.com',
     iosBundleId: 'com.example.uzaydanMisafirler.RunnerTests',
   );
 }

@@ -13,7 +13,7 @@ class loginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthService authService = AuthService();
+    AuthServices authService = AuthServices();
     return Scaffold(
       backgroundColor: Colors.grey,
       body: Padding(
