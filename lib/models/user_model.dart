@@ -15,7 +15,8 @@ class UserModel {
   String? sifre;
 
 
-  UserModel({required this.uid, required this.name, required this.email, required this.telno, required this.surname, required this.tcno});
+
+  UserModel({required this.uid, required this.name, required this.email,this.telno,this.surname, this.tcno});
 
 
   UserModel.fromJson(Map<String, dynamic> json) {

@@ -29,7 +29,7 @@ class RegisterView extends StatelessWidget {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final tcController = TextEditingController();
-  AuthService authService = AuthService();
+  AuthServices authServices = AuthServices();
 
   @override
   Widget build(BuildContext context) {
@@ -216,7 +216,7 @@ class RegisterView extends StatelessWidget {
                       print(telnoController.text);
                       print(nameController.text);
 
-                     authService.registerWithEmailAndPassword(emailController.text,passwordController.text);
+                     authServices.registerWithEmailAndPassword(emailController.text,passwordController.text);
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black,
