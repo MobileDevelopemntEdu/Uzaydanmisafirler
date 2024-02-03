@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import '../services/auth_services.dart';
-import 'home_view.dart';
+import 'package:provider/provider.dart';
+import '../controller/auth_controller.dart';
 import 'login_view.dart';
+import 'home_view.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -23,16 +25,12 @@ class MyApp extends StatelessWidget {
 class RegisterView extends StatelessWidget {
   RegisterView({super.key});
 
-  final nameController = TextEditingController();
-  final surnameController = TextEditingController();
-  final telnoController = TextEditingController();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final tcController = TextEditingController();
-  AuthServices authServices = AuthServices();
+
 
   @override
   Widget build(BuildContext context) {
+    final authController = Provider.of<AuthController>(context, listen: true);
+
     return Scaffold(
       backgroundColor: Colors.grey,
       body: Padding(
@@ -81,7 +79,7 @@ class RegisterView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  controller: nameController,
+                  controller: authController.nameController,
                   decoration: InputDecoration(
                     hintText: "Ad",
                     filled: true,
@@ -98,7 +96,7 @@ class RegisterView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  controller: surnameController,
+                  controller: authController.surnameController,
                   decoration: InputDecoration(
                     hintText: "Soyad",
                     filled: true,
@@ -115,7 +113,7 @@ class RegisterView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  controller: emailController,
+                  controller: authController.emailController,
                   decoration: InputDecoration(
                     hintText: "e-mail",
                     filled: true,
@@ -132,7 +130,7 @@ class RegisterView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  controller: telnoController,
+                  controller: authController.telnoController,
                   decoration: InputDecoration(
                     hintText: "Tel-no",
                     filled: true,
@@ -149,7 +147,7 @@ class RegisterView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  controller: tcController,
+                  controller: authController.tcController,
                   decoration: InputDecoration(
                     hintText: "Tc-no",
                     filled: true,
@@ -166,7 +164,7 @@ class RegisterView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  controller: passwordController,
+                  controller: authController.passwordController,
                   decoration: InputDecoration(
                     hintText: "Sifre",
                     filled: true,
@@ -183,7 +181,7 @@ class RegisterView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  controller: passwordController,
+                  controller: authController.passwordController,
                   decoration: InputDecoration(
                     hintText: "Sifre tekrar",
                     filled: true,
@@ -206,26 +204,34 @@ class RegisterView extends StatelessWidget {
                 child: SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () async {
-
-
-                      print(emailController.text);
-                      print(passwordController.text);
-                      print(surnameController.text);
-                      print(tcController.text);
-                      print(telnoController.text);
-                      print(nameController.text);
-
-                     authServices.registerWithEmailAndPassword(emailController.text,passwordController.text);
-                    },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.black,
-                      onPrimary: Colors.white,
-                    ),
-                    child: const Text("Kayıt Ol"),
+                    primary: Colors.black,
+                    onPrimary: Colors.white,
                   ),
+
+                    onPressed: () async {
+                      await authController.register().then((value) {
+                        if (value != null) {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      HomeView(
+                                        uid: value,
+                                      )));
+                        }
+
+                        //auth.signInWithEmailAndPassword(email: email, password: password)
+                      },
+
+
+
+                      );
+                    }, child: const Text("Kayıt Ol"),
                 ),
               ),
+           ),
+
               TextButton(onPressed: () {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => loginView()));
