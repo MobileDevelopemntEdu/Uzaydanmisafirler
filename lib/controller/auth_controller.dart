@@ -18,8 +18,29 @@ class AuthController extends ChangeNotifier {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final tcController = TextEditingController();
+  final passwordController2 = TextEditingController();
 
-  bool _EpostaControll() {
+bool _nameController() {
+    if (nameController.text.isEmpty) {
+      print("name boş");
+      return false;
+    } else {
+      print("name dolu");
+      return true;
+    }
+  }
+
+bool _surnameController(){
+    if(surnameController.text.isEmpty){
+      print("surname boş");
+      return false;
+    }else{
+      print("surname dolu");
+      return true;
+    }
+  }
+
+  bool _EpostaController() {
     if (emailController.text.isEmpty) {
       print("email boş");
       return false;
@@ -29,6 +50,25 @@ class AuthController extends ChangeNotifier {
     }
   }
 
+ bool _telnoController(){
+    if(telnoController.text.isEmpty){
+      print("telno boş");
+      return false;
+    }else{
+      print("telno dolu");
+      return true;
+    }
+  }
+
+ bool _tcnoController(){
+    if(tcController.text.isEmpty){
+      print("tcno boş");
+      return false;
+    }else{
+      print("tcno dolu");
+      return true;
+    }
+  }
 
   bool _passwordController() {
     if (passwordController.text.isEmpty || passwordController.text.length < 8) {
@@ -40,25 +80,34 @@ class AuthController extends ChangeNotifier {
     }
   }
 
-
-  bool _nameController() {
-    if (nameController.text.isEmpty) {
-      print("name boş");
-      return false;
-    } else {
-      print("name dolu");
-      return true;
-    }
+ bool _passwordController2(){
+  if(passwordController.text == passwordController2.text){
+    print("sifre ayni");
+    return true;
+  }else{
+    print("sifre ayni degil");
+    return false;
   }
-
+ }
 
   Future<String?> register() async {
     if (_nameController() == true &&
-        _EpostaControll() == true &&
-        _passwordController() == true) {
+        _surnameController() == true &&
+        _EpostaController() == true &&
+        _telnoController() == true &&
+        _tcnoController() == true &&
+        _passwordController() == true &&
+        _passwordController2() == true 
+        ) {
       return await repo
-          .registerWithEmailAndPassword(nameController.text,
-              emailController.text, passwordController.text)
+          .registerWithEmailAndPassword(
+            nameController.text,
+            surnameController.text,
+            emailController.text,
+            telnoController.text,
+            tcController.text,
+            passwordController.text
+          )
           .then((value) {
         if (value != null) {
           return value.uid;
@@ -74,10 +123,12 @@ class AuthController extends ChangeNotifier {
 
 
   Future<String?> login() async {
-    if (_EpostaControll() == true && _passwordController() == true) {
+    if (_EpostaController() == true && _passwordController() == true) {
       return await repo
           .signInWithEmailAndPassword(
-              emailController.text, passwordController.text)
+              emailController.text,
+              passwordController.text
+              )
           .then((value) {
         if (value != null) {
           return value.uid;
