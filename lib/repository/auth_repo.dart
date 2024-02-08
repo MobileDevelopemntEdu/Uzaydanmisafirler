@@ -25,10 +25,10 @@ class AuthenticationRepository {
   }
 
 
-  Future<User?> registerWithEmailAndPassword(String name, String email, String password) async {
+  Future<User?> registerWithEmailAndPassword(String name, String surname, String email, String telno, String tcno, String password) async {
     return await _authServices.registerWithEmailAndPassword(email, password).then((value) {
       if (value != null) {
-        var model = UserModel(uid: value.uid, name: name, email: email);
+        var model = UserModel(uid: value.uid, name: name, surname: surname, email: email, password:password , telno: telno,tcno: tcno);
         _userServices.createUser(model);
         return value;
       } else {

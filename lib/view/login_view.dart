@@ -1,19 +1,16 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:uzaydan_misafirler/controller/auth_controller.dart';
+import 'package:uzaydan_misafirler/view/home_view.dart';
 import '../services/auth_services.dart';
 import 'register_view.dart';
+import 'package:provider/provider.dart';
 
 class loginView extends StatelessWidget {
  loginView({super.key});
-
-
- final emailController = TextEditingController();
- final tcController = TextEditingController();
-
-
   @override
   Widget build(BuildContext context) {
-    AuthServices authService = AuthServices();
+     final authController = Provider.of<AuthController>(context, listen: true);
+    AuthServices authServices = AuthServices();
     return Scaffold(
       backgroundColor: Colors.grey,
       body: Padding(
@@ -63,7 +60,7 @@ class loginView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  controller: emailController,
+                  controller: authController.emailController,
                   decoration: InputDecoration(
                     hintText: "e-mail",
                     filled: true,
@@ -78,10 +75,10 @@ class loginView extends StatelessWidget {
                 ),
               ),
 
-              Padding(
+             /* Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  controller: tcController,
+                  controller: authController.tcController,
                   decoration: InputDecoration(
                     hintText: "Tc-no",
                     filled: true,
@@ -95,8 +92,24 @@ class loginView extends StatelessWidget {
                   ),
                 ),
               ),
-
-
+*/
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  controller: authController.passwordController,
+                  decoration: InputDecoration(
+                    hintText: "şifre",
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 15.0, horizontal: 20.0),
+                  ),
+                ),
+              ),
 
               Padding(
                 padding: const EdgeInsets.only(
@@ -105,9 +118,13 @@ class loginView extends StatelessWidget {
                 child: SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () async {
-
-
+                    onPressed: () async {//giriş yapma kısmı
+                      await authController.login().then((value) {
+                        if(value != null) {
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeView(uid: value)));
+                        }
+                      }               
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black,

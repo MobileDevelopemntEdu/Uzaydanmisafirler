@@ -12,11 +12,11 @@ class UserModel {
 
   String? tcno;
 
-  String? sifre;
+  String? password;
 
 
 
-  UserModel({required this.uid, required this.name, required this.email,this.telno,this.surname, this.tcno});
+  UserModel({required this.uid, required this.name, required this.email, required this.telno, required this.surname, required this.tcno, required this.password});
 
 
   UserModel.fromJson(Map<String, dynamic> json) {
@@ -26,7 +26,7 @@ class UserModel {
     email = json['email'] ;
     telno = json['phone'] ?? '';
     tcno  =json['tcno'] ?? '';
-    sifre = json['sifre'] ?? '';
+    password = json['sifre'] ?? '';
   }
 
   Map<String, dynamic> toJson() {
@@ -37,7 +37,7 @@ class UserModel {
       'telno': telno?? '',
       'surname': surname ?? '',
       'tcno': tcno ?? '',
-      'sifre': sifre?? '',
+      'sifre': password?? '',
     };
   }
 }

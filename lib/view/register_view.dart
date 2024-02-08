@@ -181,7 +181,7 @@ class RegisterView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
-                  controller: authController.passwordController,
+                  controller: authController.passwordController2,
                   decoration: InputDecoration(
                     hintText: "Sifre tekrar",
                     filled: true,
@@ -227,7 +227,7 @@ class RegisterView extends StatelessWidget {
 
 
                       );
-                    }, child: const Text("Kayıt Ol"),
+                    }, child: const Text("Kayit Ol"),
                 ),
               ),
            ),
