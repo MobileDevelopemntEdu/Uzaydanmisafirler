@@ -212,6 +212,7 @@ class RegisterView extends StatelessWidget {
                   ),
 
                     onPressed: () async {
+
                       await authController.register().then((value) {
                         if (value != null) {
                           Navigator.pushReplacement(
@@ -219,7 +220,7 @@ class RegisterView extends StatelessWidget {
                               MaterialPageRoute(
                                   builder: (context) =>
                                       HomeView(
-                                        uid: value,
+
                                       )));
                         }
 

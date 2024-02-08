@@ -1,9 +1,12 @@
-import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class Pharmcy{
-  Future<void> fetchData() async {
+import 'package:http/http.dart' as http;
+import 'package:uzaydan_misafirler/models/pharmcymodel.dart';
+
+class PharmcyDD{
+  Future<Pharmcy?> fetchData() async {
     // Replace 'YOUR_API_KEY' with your actual API key
-    final apiKey = 'Pl1a64c88DJl7WmYQijyFQtRc3kLoYXV8PEszGA4CxHJoarcXTjd6Fk6vmp5';
+    final apiKey = 'kDwbmijDsc9eoEwpLe80eODIgT8ubloO2CXJO1tjzjbXFBlcqQSnnhA9ItGg';
 
     final url = ' https://www.nosyapi.com/apiv2/pharmacy';
 
@@ -18,9 +21,13 @@ class Pharmcy{
     if (response.statusCode == 200) {
       // Handle successful response
       print('Response data: ${response.body}');
+      Pharmcy model = Pharmcy.fromJson(json.decode(response.body));
+
+      return model;
     } else {
       // Handle error
       print('Error: ${response.statusCode}');
+      return null;
     }
   }
 }
