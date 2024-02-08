@@ -5,7 +5,7 @@ import 'package:uzaydan_misafirler/models/pharmcymodel.dart';
 
 class PharmcyDD{
   Future<Pharmcy?> fetchData() async {
-    // Replace 'YOUR_API_KEY' with your actual API key
+    // Replace 'YOUR_API_KEY'  with your actual API key
     final apiKey = 'kDwbmijDsc9eoEwpLe80eODIgT8ubloO2CXJO1tjzjbXFBlcqQSnnhA9ItGg';
 
     final url = ' https://www.nosyapi.com/apiv2/pharmacy';
