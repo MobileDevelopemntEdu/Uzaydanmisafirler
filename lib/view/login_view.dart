@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:uzaydan_misafirler/controller/auth_controller.dart';
 import 'package:uzaydan_misafirler/view/home_view.dart';
@@ -97,6 +99,7 @@ class loginView extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
                   controller: authController.passwordController,
+                  obscureText:true,
                   decoration: InputDecoration(
                     hintText: "şifre",
                     filled: true,
@@ -123,7 +126,7 @@ class loginView extends StatelessWidget {
                         if(value != null) {
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeView(uid: value)));
                         }
-                      }               
+                      }
                       );
                     },
                     style: ElevatedButton.styleFrom(

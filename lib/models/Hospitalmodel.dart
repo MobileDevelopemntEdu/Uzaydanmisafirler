@@ -1,22 +1,22 @@
-class Hospital {
+class HospitalModel {
   String? status;
   String? message;
   int? rowCount;
   int? systemTime;
-  List<Data>? data;
+  List<HospitalData>? data;
 
-  Hospital(
+  HospitalModel(
       {this.status, this.message, this.rowCount, this.systemTime, this.data});
 
-  Hospital.fromJson(Map<String, dynamic> json) {
+  HospitalModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
     rowCount = json['rowCount'];
     systemTime = json['systemTime'];
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <HospitalData>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(new HospitalData.fromJson(v));
       });
     }
   }
@@ -34,7 +34,7 @@ class Hospital {
   }
 }
 
-class Data {
+class HospitalData {
   String? ad;
   String? adres;
   String? tel;
@@ -45,7 +45,7 @@ class Data {
   double? latitude;
   double? longitude;
 
-  Data(
+  HospitalData(
       {this.ad,
         this.adres,
         this.tel,
@@ -56,7 +56,7 @@ class Data {
         this.latitude,
         this.longitude});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  HospitalData.fromJson(Map<String, dynamic> json) {
     ad = json['Ad'];
     adres = json['Adres'];
     tel = json['Tel'];

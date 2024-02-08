@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:uzaydan_misafirler/models/Hospitalmodel.dart';
+import 'package:uzaydan_misafirler/models/pharmcymodel.dart';
+import 'package:uzaydan_misafirler/services/pharmcyService.dart';
+import 'package:uzaydan_misafirler/services/hospital_services.dart';
 import '../models/user_model.dart';
 import '../repository/user_repo.dart';
 
@@ -12,17 +16,11 @@ class HomeView extends StatelessWidget {
 
 
     return  Scaffold(
-      body: FutureBuilder<UserModel?>(
-          future: UserRepository().getUser(uid),
-          builder: (context, snapshot) {
-            if(snapshot.connectionState == ConnectionState.waiting){
-              return Center(child: CircularProgressIndicator());
-            }else {
+      body: ElevatedButton(onPressed: () {
+      }, child: null,
 
-              return Text("User name is ${snapshot.data?.name}");
-            }
-          }
-    ),
+      ),
     );
+
   }
 }
