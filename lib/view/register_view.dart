@@ -164,6 +164,7 @@ class RegisterView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
+                  obscureText:true,
                   controller: authController.passwordController,
                   decoration: InputDecoration(
                     hintText: "Sifre",
@@ -181,6 +182,7 @@ class RegisterView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
+                  obscureText:true,
                   controller: authController.passwordController2,
                   decoration: InputDecoration(
                     hintText: "Sifre tekrar",
