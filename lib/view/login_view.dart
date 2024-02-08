@@ -124,7 +124,7 @@ class loginView extends StatelessWidget {
                     onPressed: () async {//giriş yapma kısmı
                       await authController.login().then((value) {
                         if(value != null) {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeView(uid: value)));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeView()));
                         }
                       }
                       );

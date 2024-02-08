@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/Hospitalmodel.dart';
 
 
-class UserServices {
+class HospitalServices {
 
   final  CollectionReference _userDB = FirebaseFirestore.instance.collection('hospital');
 

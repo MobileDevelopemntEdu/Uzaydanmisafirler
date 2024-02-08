@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/pharmcymodel.dart';
 
 
-class UserServices {
+class PharmcyServices {
 
   final  CollectionReference _userDB = FirebaseFirestore.instance.collection('pharmcy');
 
