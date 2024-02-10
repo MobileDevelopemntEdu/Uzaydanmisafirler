@@ -6,9 +6,9 @@ import 'package:uzaydan_misafirler/models/Hospitalmodel.dart';
 class HospitalService{
   Future<HospitalModel?> fetchData() async {
     // Replace 'YOUR_API_KEY' with your actual API key
-    final apiKey = 'Pl1a64c88DJl7WmYQijyFQtRc3kLoYXV8PEszGA4CxHJoarcXTjd6Fk6vmp5';
+    final apiKey = 'kDwbmijDsc9eoEwpLe80eODIgT8ubloO2CXJO1tjzjbXFBlcqQSnnhA9ItGg';
 
-    final url = 'https://www.nosyapi.com/apiv2/hospital';
+    final url = 'https://www.nosyapi.com/apiv2/service/hospital?city=istanbul&apiKey=APIKEY';
 
     // Include the API key in the headers
     final headers = {

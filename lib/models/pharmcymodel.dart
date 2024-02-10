@@ -1,22 +1,35 @@
-class Pharmcy {
+class PharmcyModel {
   String? status;
   String? message;
-  int? rowCount;
+  String? messageTR;
   int? systemTime;
-  List<Eczanedata>? data;
+  String? endpoint;
+  int? rowCount;
+  int? creditUsed;
+  List<EczaneData>? data;
 
-  Pharmcy(
-      {this.status, this.message, this.rowCount, this.systemTime, this.data});
+  PharmcyModel(
+      {this.status,
+        this.message,
+        this.messageTR,
+        this.systemTime,
+        this.endpoint,
+        this.rowCount,
+        this.creditUsed,
+        this.data});
 
-  Pharmcy.fromJson(Map<String, dynamic> json) {
+  PharmcyModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    rowCount = json['rowCount'];
+    messageTR = json['messageTR'];
     systemTime = json['systemTime'];
+    endpoint = json['endpoint'];
+    rowCount = json['rowCount'];
+    creditUsed = json['creditUsed'];
     if (json['data'] != null) {
-      data = <Eczanedata>[];
+      data = <EczaneData>[];
       json['data'].forEach((v) {
-        data!.add(new Eczanedata.fromJson(v));
+        data!.add(new EczaneData.fromJson(v));
       });
     }
   }
@@ -25,8 +38,11 @@ class Pharmcy {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['status'] = this.status;
     data['message'] = this.message;
-    data['rowCount'] = this.rowCount;
+    data['messageTR'] = this.messageTR;
     data['systemTime'] = this.systemTime;
+    data['endpoint'] = this.endpoint;
+    data['rowCount'] = this.rowCount;
+    data['creditUsed'] = this.creditUsed;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -34,53 +50,61 @@ class Pharmcy {
   }
 }
 
-class Eczanedata {
-  String? eczaneAdi;
-  String? adresi;
-  String? semt;
-  String? yolTarifi;
-  String? telefon;
-  String? telefon2;
-  String? sehir;
-  String? ilce;
+class EczaneData {
+  int? pharmacyID;
+  String? pharmacyName;
+  String? address;
+  String? city;
+  String? district;
+  String? town;
+  String? directions;
+  String? phone;
+  String? phone2;
+  bool? dutyPharmacy;
   double? latitude;
   double? longitude;
 
-  Eczanedata(
-      {this.eczaneAdi,
-        this.adresi,
-        this.semt,
-        this.yolTarifi,
-        this.telefon,
-        this.telefon2,
-        this.sehir,
-        this.ilce,
+  EczaneData(
+      {this.pharmacyID,
+        this.pharmacyName,
+        this.address,
+        this.city,
+        this.district,
+        this.town,
+        this.directions,
+        this.phone,
+        this.phone2,
+        this.dutyPharmacy,
         this.latitude,
         this.longitude});
 
-  Eczanedata.fromJson(Map<String, dynamic> json) {
-    eczaneAdi = json['EczaneAdi'];
-    adresi = json['Adresi'];
-    semt = json['Semt'];
-    yolTarifi = json['YolTarifi'];
-    telefon = json['Telefon'];
-    telefon2 = json['Telefon2'];
-    sehir = json['Sehir'];
-    ilce = json['ilce'];
+  EczaneData.fromJson(Map<String, dynamic> json) {
+    pharmacyID = json['pharmacyID'];
+    pharmacyName = json['pharmacyName'];
+    address = json['address'];
+    city = json['city'];
+    district = json['district'];
+    town = json['town'];
+    directions = json['directions'];
+    phone = json['phone'];
+    phone2 = json['phone2'];
+    dutyPharmacy = json['dutyPharmacy'];
     latitude = json['latitude'];
     longitude = json['longitude'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['EczaneAdi'] = this.eczaneAdi;
-    data['Adresi'] = this.adresi;
-    data['Semt'] = this.semt;
-    data['YolTarifi'] = this.yolTarifi;
-    data['Telefon'] = this.telefon;
-    data['Telefon2'] = this.telefon2;
-    data['Sehir'] = this.sehir;
-    data['ilce'] = this.ilce;
+    data['pharmacyID'] = this.pharmacyID;
+    data['pharmacyName'] = this.pharmacyName;
+    data['address'] = this.address;
+    data['city'] = this.city;
+    data['district'] = this.district;
+    data['town'] = this.town;
+    data['directions'] = this.directions;
+    data['phone'] = this.phone;
+    data['phone2'] = this.phone2;
+    data['dutyPharmacy'] = this.dutyPharmacy;
     data['latitude'] = this.latitude;
     data['longitude'] = this.longitude;
     return data;

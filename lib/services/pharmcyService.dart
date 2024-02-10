@@ -7,7 +7,7 @@ class PharmcyServices {
 
   final  CollectionReference _userDB = FirebaseFirestore.instance.collection('pharmcy');
 
-  Future<void> AddPharmcy(Eczanedata data) async {
+  Future<void> AddPharmcy(EczaneData data) async {
     try {
       return await _userDB.doc().set(data.toJson());
     } catch(e) {
@@ -15,20 +15,20 @@ class PharmcyServices {
     }
   }
 
-  Future<Eczanedata?> getpharmcy(String uid) async {
+  Future<EczaneData?> getpharmcy(String uid) async {
     try {
       DocumentSnapshot userData = await _userDB.doc(uid).get();
-      return Eczanedata.fromJson(userData.data() as Map<String, dynamic>);
+      return EczaneData.fromJson(userData.data() as Map<String, dynamic>);
     } catch(e) {
       print(e.toString());
     }
     return null;
   }
 
-  Future<List<Eczanedata>> getAllpharmcy() async {
+  Future<List<EczaneData>> getAllpharmcy() async {
     try {
       QuerySnapshot usersData = await _userDB.get();
-      return usersData.docs.map((e) => Eczanedata.fromJson(e.data() as Map<String, dynamic>)).toList();
+      return usersData.docs.map((e) => EczaneData.fromJson(e.data() as Map<String, dynamic>)).toList();
     } catch(e) {
       print(e.toString());
     }

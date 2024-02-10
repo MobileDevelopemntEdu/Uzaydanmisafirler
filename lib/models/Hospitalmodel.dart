@@ -22,11 +22,11 @@ class HospitalModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    data['message'] = this.message;
-    data['rowCount'] = this.rowCount;
-    data['systemTime'] = this.systemTime;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    data['message'] = message;
+    data['rowCount'] = rowCount;
+    data['systemTime'] = systemTime;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -69,16 +69,16 @@ class HospitalData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Ad'] = this.ad;
-    data['Adres'] = this.adres;
-    data['Tel'] = this.tel;
-    data['Email'] = this.email;
-    data['Website'] = this.website;
-    data['Sehir'] = this.sehir;
-    data['ilce'] = this.ilce;
-    data['latitude'] = this.latitude;
-    data['longitude'] = this.longitude;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['Ad'] = ad;
+    data['Adres'] = adres;
+    data['Tel'] = tel;
+    data['Email'] = email;
+    data['Website'] = website;
+    data['Sehir'] = sehir;
+    data['ilce'] = ilce;
+    data['latitude'] = latitude;
+    data['longitude'] = longitude;
     return data;
   }
 }
