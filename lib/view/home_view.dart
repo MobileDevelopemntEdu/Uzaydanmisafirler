@@ -1,75 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:uzaydan_misafirler/models/Hospitalmodel.dart';
-import 'package:uzaydan_misafirler/models/pharmcymodel.dart';
-import 'package:uzaydan_misafirler/services/pharmcyService.dart';
-import 'package:uzaydan_misafirler/services/hospital_services.dart';
-import '../models/user_model.dart';
-import '../repository/user_repo.dart';
-
-
-class HomeView extends StatelessWidget {
+import 'home_view_lists/button_view_list.dart';
+import 'home_view_lists/home_view_list.dart';
 
 
 
-  const HomeView({Key? key,});
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() =>
+      _HomeViewState();
+}
+
+class _HomeViewState
+    extends State<HomeView> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Home(),
+   Buttons(),
+
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-
-
-
-
+    final theme = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: Colors.grey.shade600,
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "hastane ara",
-                          filled: true,
-                          prefixIcon: Icon(Icons.search),
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                            borderSide: BorderSide.none,
-                          ),
-                          contentPadding: const EdgeInsets.symmetric(
-                            vertical: 15.0,
-                            horizontal: 20.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  CircleAvatar(
-                    radius: 20,
-                    backgroundColor: Colors.black38,
-                    child: IconButton(
-                      icon: Icon(Icons.person),
-                      color: Colors.white,
-                      onPressed: () {
-                        // will change later to go to the profile page
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ],
+      backgroundColor: Theme.of(context).colorScheme.background,
+
+      body: _widgetOptions.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.grey.shade800,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Business',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor:theme.primary,
+        onTap: _onItemTapped,
       ),
     );
-
   }
 }
